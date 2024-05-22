@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const DisplayUser = (props) => {
   const { stds } = props;
@@ -7,6 +7,18 @@ const DisplayUser = (props) => {
   const handleShow = () => {
     setIsShow(!isShow);
   };
+
+  console.log(">>> Render");
+
+  useEffect(() => {
+    if (stds.length == 0) {
+      alert("Deleted all stds");
+    }
+    console.log(">>> Use useEffect");
+  }, [stds]);
+  // have many useEffect
+  // if [] emply, useEffect = ComponentDidMount else = componentDidUpdate in Class Component
+
   return (
     <>
       <div>
