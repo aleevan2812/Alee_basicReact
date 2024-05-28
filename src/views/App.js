@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import AddUser from "./example/AddUser";
 import Table from "./example/Table";
 import _useRef from "../components/useRef/_useRef";
-import UseContext from "../components/useContext/UseContext";
+import { UseContext } from "../components/useContext/UseContext";
 
 class App extends React.Component {
   render() {

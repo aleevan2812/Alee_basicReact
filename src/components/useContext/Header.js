@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext, UseContext } from "./UseContext";
 
 export default function Header(props) {
-  const { isOpen, setIsOpen, userData } = props;
+  const { isOpen, setIsOpen } = props;
+  const userData = useContext(AppContext);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };

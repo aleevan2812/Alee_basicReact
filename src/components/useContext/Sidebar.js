@@ -2,7 +2,6 @@ import React from "react";
 import UserInformation from "./UserInformation";
 
 export default function Sidebar(props) {
-  const { userData } = props;
   return (
     <div
       className="sidebar"
@@ -14,7 +13,7 @@ export default function Sidebar(props) {
       }}
     >
       <h2>Sidebar</h2>
-      <UserInformation userData={userData} />
+      <UserInformation />
     </div>
   );
 }

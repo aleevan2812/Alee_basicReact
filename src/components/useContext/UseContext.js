@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import Content from "./Content";
 import "./UseState.css";
 import { Logger } from "sass";
 
-const UseContext = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const AppContext = createContext({});
+export const AppProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   useEffect(() => {
     fetch("https://reqres.in/api/users/2")
@@ -17,13 +17,19 @@ const UseContext = () => {
       });
   }, []);
 
+  return <AppContext.Provider value={userData}>{children}</AppContext.Provider>;
+};
+
+export const UseContext = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="learn-usestate">
-      <Header isOpen={isOpen} setIsOpen={setIsOpen} userData={userData} />
-      <Content isOpen={isOpen} />
-      {isOpen && <Sidebar userData={userData} />}
+      <AppProvider>
+        <Header isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Content isOpen={isOpen} />
+        {isOpen && <Sidebar />}
+      </AppProvider>
     </div>
   );
 };
-
-export default UseContext;
