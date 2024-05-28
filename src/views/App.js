@@ -5,6 +5,7 @@ import AddUser from "./example/AddUser";
 import Table from "./example/Table";
 import _useRef from "../components/useRef/_useRef";
 import { UseContext } from "../components/useContext/UseContext";
+import { UseMemo } from "../components/useMemo/UseMemo";
 
 class App extends React.Component {
   render() {
@@ -15,7 +16,8 @@ class App extends React.Component {
 
           {/*<MyComponent />*/}
           {/*<_useRef />*/}
-          <UseContext />
+          {/*<UseContext />*/}
+          <UseMemo />
         </header>
       </div>
     );
