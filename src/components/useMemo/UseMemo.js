@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 function expensiveFunction(number) {
   console.log("Start");
@@ -12,8 +12,12 @@ function expensiveFunction(number) {
 
 export const UseMemo = () => {
   const [count, setCount] = useState(0);
-
-  const number = expensiveFunction(10);
+  const [num, setNum] = useState(20);
+  const number = useMemo(() => {
+    expensiveFunction(num);
+  }, [num]);
+  // khi co su thay doi o bien 'num' thi moi chay expensiveFunction()
+  // k lam dung vi can bo nho san
 
   return (
     <>
