@@ -11,7 +11,7 @@ const DisplayUser = (props) => {
   console.log(">>> Render");
 
   useEffect(() => {
-    if (stds.length == 0) {
+    if (stds.length === 0) {
       alert("Deleted all stds");
     }
     console.log(">>> Use useEffect");
